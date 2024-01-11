@@ -5,6 +5,10 @@
   "repository": "https://github.com/ironPriest/pullupMaster.git",
   "author": "ironPriest <iron.priest.mih@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "watch": "tsc -w",
+    "dev": "nodemon --inspect dist/index.js"
+  },
   "dependencies": {
     "express": "^4.18.2"
   },
