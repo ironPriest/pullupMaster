@@ -35,6 +35,10 @@ app.get('/', (req: Request, res: Response) => {
     res.send('hello word')
 })
 
+app.get('/trainings', (req: Request, res: Response) => {
+    res.send(trainings)
+})
+
 // start app
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
