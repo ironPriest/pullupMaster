@@ -39,8 +39,13 @@ app.get('/trainings', (req: Request, res: Response) => {
     res.send(trainings)
 })
 
-app.get('/goals', (req: Request, res: Response) => {
-    res.send(goals)
+app.get('/goals/:user', (req: Request, res: Response) => {
+    let goal = goals.find(p => p.user === req.params.user)
+    if (goal) {
+        res.send(goal)
+    } else {
+        res.sendStatus(404)
+    }
 })
 
 // start app
