@@ -21,11 +21,13 @@ const trainings = [
 const goals = [
     {
         user: 'fooBar',
+        city: 'Mensk',
         number: 23,
         date: 1212
     },
     {
         user: 'barFoo',
+        city: 'Warsaw',
         number: 27,
         date: 1313
     }
@@ -37,6 +39,15 @@ app.get('/', (req: Request, res: Response) => {
 
 app.get('/trainings', (req: Request, res: Response) => {
     res.send(trainings)
+})
+
+app.get('/goals', (req: Request, res: Response) => {
+    if (req.query.city) {
+        let searchString = req.query.city.toString()
+        res.send(goals.filter(p => p.city.indexOf(searchString) > -1))
+    } else {
+        res.send(goals)
+    }
 })
 
 app.get('/goals/:user', (req: Request, res: Response) => {
