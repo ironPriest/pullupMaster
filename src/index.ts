@@ -43,7 +43,7 @@ app.get('/trainings', (req: Request, res: Response) => {
 
 app.get('/goals', (req: Request, res: Response) => {
     if (req.query.city) {
-        let searchString = req.query.city.toString()
+        let searchString: string = req.query.city.toString()
         res.send(goals.filter(p => p.city.indexOf(searchString) > -1))
     } else {
         res.send(goals)
@@ -51,6 +51,15 @@ app.get('/goals', (req: Request, res: Response) => {
 })
 
 app.get('/goals/:user', (req: Request, res: Response) => {
+    let goal = goals.find(p => p.user === req.params.user)
+    if (goal) {
+        res.send(goal)
+    } else {
+        res.sendStatus(404)
+    }
+})
+
+app.delete('/goals/:user', (req: Request, res: Response) => {
     let goal = goals.find(p => p.user === req.params.user)
     if (goal) {
         res.send(goal)
