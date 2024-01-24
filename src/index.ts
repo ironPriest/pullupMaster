@@ -41,6 +41,16 @@ app.get('/trainings', (req: Request, res: Response) => {
     res.send(trainings)
 })
 
+app.post('/trainings',(req: Request, res: Response) => {
+        const newTraining = {
+            timeStamp: +(new Date()),
+            sets: req.body.sets,
+            repsPerSet: req.body.repsPerSet
+        }
+        trainings.push(newTraining)
+        res.status(201).send(newTraining)
+    })
+
 app.get('/goals', (req: Request, res: Response) => {
     if (req.query.city) {
         let searchString: string = req.query.city.toString()
@@ -66,7 +76,7 @@ app.delete('/goals/:user', (req: Request, res: Response) => {
             res.send(204);
             return
         }
-        res.send(404);
+        res.sendStatus(404);
     }
 })
 
