@@ -69,6 +69,15 @@ app.get('/goals/:user', (req: Request, res: Response) => {
     }
 })
 
+app.put('/goals/:user', (req: Request, res: Response) => {
+    let goal = goals.find(p => p.user === req.params.user)
+    if (goal) {
+        res.send(goal)
+    } else {
+        res.sendStatus(404)
+    }
+})
+
 app.delete('/goals/:user', (req: Request, res: Response) => {
     for (let i=0; i < goals.length; i++) {
         if (goals[i].user === req.params.user) {
