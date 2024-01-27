@@ -72,6 +72,7 @@ app.get('/goals/:user', (req: Request, res: Response) => {
 app.put('/goals/:user', (req: Request, res: Response) => {
     let goal = goals.find(p => p.user === req.params.user)
     if (goal) {
+        goal.number = req.body.number;
         res.send(goal)
     } else {
         res.sendStatus(404)
