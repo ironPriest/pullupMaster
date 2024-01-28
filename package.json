@@ -6,11 +6,17 @@
   "author": "ironPriest <iron.priest.mih@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "test": "jest",
     "watch": "tsc -w",
     "dev": "nodemon --inspect dist/index.js"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "@types/jest": "^29.5.11",
+    "@types/supertest": "^6.0.2",
+    "express": "^4.18.2",
+    "jest": "^29.7.0",
+    "supertest": "^6.3.4",
+    "ts-jest": "^29.1.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
