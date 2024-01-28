@@ -1,7 +1,7 @@
 import express, {Request, Response} from 'express'
 
 // create express app
-const app = express()
+export const app = express()
 
 const port = 3000
 
