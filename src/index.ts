@@ -1,11 +1,11 @@
-import express, {Request, Response} from 'express'
+import express, {Request, response, Response} from 'express'
 
 // create express app
 export const app = express()
 
 const port = 3000
 
-const trainings = [
+let trainings = [
     {
         timeStamp: 1212,
         sets: 4,
@@ -18,7 +18,7 @@ const trainings = [
     }
 ]
 
-const goals = [
+let goals = [
     {
         user: 'fooBar',
         city: 'Mensk',
@@ -38,18 +38,18 @@ app.get('/', (req: Request, res: Response) => {
 })
 
 app.get('/trainings', (req: Request, res: Response) => {
-    res.send(trainings)
+    res.status(200).send(trainings)
 })
 
 app.post('/trainings',(req: Request, res: Response) => {
-        const newTraining = {
-            timeStamp: +(new Date()),
-            sets: req.body.sets,
-            repsPerSet: req.body.repsPerSet
-        }
-        trainings.push(newTraining)
-        res.status(201).send(newTraining)
-    })
+    const newTraining = {
+        timeStamp: +(new Date()),
+        sets: req.body.sets,
+        repsPerSet: req.body.repsPerSet
+    }
+    trainings.push(newTraining)
+    res.status(201).send(newTraining)
+})
 
 app.get('/goals', (req: Request, res: Response) => {
     if (req.query.city) {
@@ -88,6 +88,12 @@ app.delete('/goals/:user', (req: Request, res: Response) => {
         }
         res.sendStatus(404);
     }
+})
+
+app.delete('/__tests__/data', (req: Request, res: Response) => {
+    trainings = [];
+    goals = [];
+    response.sendStatus(204)
 })
 
 // start app
