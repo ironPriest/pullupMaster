@@ -56,7 +56,7 @@ app.get('/goals', (req: Request, res: Response) => {
         let searchString: string = req.query.city.toString()
         res.send(goals.filter(p => p.city.indexOf(searchString) > -1))
     } else {
-        res.send(goals)
+        res.status(200).send(goals)
     }
 })
 

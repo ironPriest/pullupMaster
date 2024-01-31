@@ -6,7 +6,7 @@
   "author": "ironPriest <iron.priest.mih@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "jest --detectOpenHandles",
+    "test": "jest",
     "watch": "tsc -w",
     "dev": "nodemon --inspect dist/index.js"
   },
