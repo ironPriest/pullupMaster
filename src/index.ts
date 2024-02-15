@@ -44,7 +44,7 @@ app.get('/trainings', (req: Request, res: Response) => {
 app.post('/trainings',(req: Request, res: Response) => {
 
     //if (!req.body.sets) {res.sendStatus(400)}
-
+    //console.log(req.body);
     const newTraining = {
         timeStamp: +(new Date()),
         sets: req.body.sets,
