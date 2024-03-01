@@ -28,7 +28,7 @@ describe('/trainings', () => {
     })
     */
 
-    it(`shouldn create training with correct input data`, async () => {
+    it(`should create training with correct input data`, async () => {
         await request(app)
             .post('/trainings')
             .send({sets: 3, repsPerSet: 20})
