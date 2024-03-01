@@ -52,7 +52,7 @@ app.post('/trainings',(req: Request, res: Response) => {
 //        repsPerSet: req.body.repsPerSet
 //    }
     //trainings.push(newTraining);
-    res.status(201)/*.send(newTraining)*/;
+    res.sendStatus(201)/*.send(newTraining)*/;
 })
 
 app.get('/goals', (req: Request, res: Response) => {
