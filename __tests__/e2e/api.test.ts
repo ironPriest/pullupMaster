@@ -19,14 +19,12 @@ describe('/trainings', () => {
         await request(app).get('/trainings/666').expect(404)
     })
 
-    /*
     it(`shouldn't create training with incorrect input data`, async () => {
         await request(app)
             .post('/trainings')
-            .send({sets: 0, repsPerSet: 0})
+            .send({reps: 2, repsPerSet: 5})
             .expect(401)
     })
-    */
 
     it('should create training with correct input data', async () => {
         await request(app)

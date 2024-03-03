@@ -44,13 +44,12 @@ app.get('/trainings', (req: Request, res: Response) => {
 app.post('/trainings',(req: Request, res: Response) => {
 
     //if (!req.body.sets) {res.sendStatus(400)}
-    //console.log(req.body);
 
-//    const newTraining = {
-//        timeStamp: +(new Date()),
-//        sets: req.body.sets,
-//        repsPerSet: req.body.repsPerSet
-//    }
+    const newTraining = {
+        timeStamp: 1313,
+        sets: req.body.sets,
+        repsPerSet: req.body.repsPerSet
+    }
     //trainings.push(newTraining);
     res.sendStatus(201)/*.send(newTraining)*/;
 })
