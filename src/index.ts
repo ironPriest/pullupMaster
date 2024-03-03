@@ -2,6 +2,7 @@ import express, {Request, response, Response} from 'express'
 
 // create express app
 export const app = express()
+app.use(express.json());
 
 const port = 3000
 
@@ -43,15 +44,15 @@ app.get('/trainings', (req: Request, res: Response) => {
 
 app.post('/trainings',(req: Request, res: Response) => {
 
-    //if (!req.body.sets) {res.sendStatus(400)}
+    if ((!req.body.sets || !req.body.repsPerSet)) {res.sendStatus(400)}
 
     const newTraining = {
-        timeStamp: 1313,
+        timeStamp: +(new Date()),
         sets: req.body.sets,
         repsPerSet: req.body.repsPerSet
     }
-    //trainings.push(newTraining);
-    res.sendStatus(201)/*.send(newTraining)*/;
+    trainings.push(newTraining);
+    res.sendStatus(201).send(newTraining);
 })
 
 app.get('/goals', (req: Request, res: Response) => {

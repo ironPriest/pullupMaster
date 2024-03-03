@@ -22,14 +22,14 @@ describe('/trainings', () => {
     it(`shouldn't create training with incorrect input data`, async () => {
         await request(app)
             .post('/trainings')
-            .send({reps: 2, repsPerSet: 5})
-            .expect(401)
+            .send({repsPerSet: 5})
+            .expect(400)
     })
 
     it('should create training with correct input data', async () => {
         await request(app)
             .post('/trainings')
-            //.send({sets: 3, repsPerSet: 20})
+            .send({sets: 3, repsPerSet: 20})
             .expect(201)
     })
 })
